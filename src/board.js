@@ -8,12 +8,16 @@
 
 import React, {Component} from 'react';
 import {StyleSheet, Text, View, Button, Image} from 'react-native';
-import {Fonts} from './font';
+import {Fonts} from './Font';
 
 class BoardScreen extends Component {
   render() {
     return (
       <View style={styles.main}>
+        <View style={styles.header}>
+          <Text style={styles.headerItemLeft}>나무로</Text>
+          <Text style={styles.headerItemRight}>Highing</Text>
+        </View>
         <View style={styles.userInfo}>
           <Image
             style={{
@@ -119,6 +123,7 @@ class BoardScreen extends Component {
 
 const styles = StyleSheet.create({
   main: {
+    marginTop: 40,
     paddingTop: 10,
     width: '100%',
     height: '100%',
@@ -204,7 +209,27 @@ const styles = StyleSheet.create({
     flexDirection:'row',
     flex:1,
     alignItems:'center',
-  }
+  },
+  header:{
+    width: '90%',
+    fontSize: 30,
+    flexDirection: 'row',
+    alignItems: 'center',
+    marginBottom: 10,
+  },
+  headerItemLeft:{
+    fontSize:20,
+    color:"black",
+    fontWeight:"bold",
+    flex:1,
+    // fontFamily={Fonts.LOTTEMART}
+  },
+  headerItemRight:{
+    fontSize:20,
+    color:"black",
+    fontWeight:"bold",
+    // fontFamily={Fonts.LOTTEMART}
+  },
 });
 
 export default BoardScreen;

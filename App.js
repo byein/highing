@@ -16,7 +16,8 @@ import LoginScreen from './src/login';
 import TabUserScreen from './src/tab_user';
 import TabSettingScreen from './src/tab_setting';
 import BoardScreen from './src/board';
-import Fonts from './src/font';
+import Fonts from './src/Font';
+import PostScreen from './src/post';
 
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -72,33 +73,35 @@ class App extends Component {
         <Stack.Navigator
           initialRouteName="Login"
           screenOptions={{
+            headerShown:false,
             headerStyle: {
               backgroundColor: '#F2F2F2',
             },
-            title: '',
+            // title: '',
           }}>
           <Stack.Screen
             name="Main"
             component={MainScreen}
-            options={{
-              title: '',
-              headerLeft: () => (
-                <Button
-                  title="나무로"
-                  color="black"
-                  fontWeight="bold"
-                  // fontFamily={Fonts.LOTTEMART}
-                />
-              ),
-              headerRight: () => (
-                <Button
-                  title="Highing"
-                  color="black"
-                  fontWeight="bold"
-                  // fontFamily={Fonts.LOTTEMART}
-                />
-              ),
-            }}
+            // options={{
+            //   title: '',
+            //   headerLeft: () => (
+            //     <Button
+            //       title="나무로"
+            //       color="black"
+            //       style={{fontWeight:'bold'}}
+            //       fontWeight="bold"
+            //       // fontFamily={Fonts.LOTTEMART}
+            //     />
+            //   ),
+            //   headerRight: () => (
+            //     <Button
+            //       title="Highing"
+            //       color="black"
+            //       fontWeight="bold"
+            //       // fontFamily={Fonts.LOTTEMART}
+            //     />
+            //   ),
+            // }}
           />
 
           <Stack.Screen
@@ -111,25 +114,29 @@ class App extends Component {
           <Stack.Screen
             name="Board"
             component={BoardScreen}
-            options={{
-              title: '',
-              headerLeft: () => (
-                <Button
-                  title="나무로"
-                  color="black"
-                  fontWeight="bold"
-                  // fontFamily={Fonts.LOTTEMART}
-                />
-              ),
-              headerRight: () => (
-                <Button
-                  title="Highing"
-                  color="black"
-                  fontWeight="bold"
-                  // fontFamily={Fonts.LOTTEMART}
-                />
-              ),
-            }}
+            // options={{
+            //   title: '',
+            //   headerLeft: () => (
+            //     <Button
+            //       title="나무로"
+            //       color="black"
+            //       fontWeight="bold"
+            //       // fontFamily={Fonts.LOTTEMART}
+            //     />
+            //   ),
+            //   headerRight: () => (
+            //     <Button
+            //       title="Highing"
+            //       color="black"
+            //       fontWeight="bold"
+            //       // fontFamily={Fonts.LOTTEMART}
+            //     />
+            //   ),
+            // }}
+          />
+          <Stack.Screen
+            name="Post"
+            component={PostScreen}
           />
         </Stack.Navigator>
       </NavigationContainer>

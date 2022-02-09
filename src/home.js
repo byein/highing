@@ -7,13 +7,25 @@
  */
 
 import React, {Component} from 'react';
-import {StyleSheet, Text, View, Button, Image, TouchableOpacity} from 'react-native';
-import {Fonts} from './font';
+import {
+  StyleSheet,
+  Text,
+  View,
+  Button,
+  Image,
+  TouchableOpacity,
+} from 'react-native';
+import Font from './Font';
+// import {Font} from './Font';
 
 class HomeScreen extends Component {
   render() {
     return (
       <View style={styles.main}>
+        <View style={styles.header}>
+          <Text style={styles.headerItemLeft}>나무로</Text>
+          <Text style={styles.headerItemRight}>Highing</Text>
+        </View>
         <View style={styles.userInfo}>
           <Image
             style={{
@@ -32,10 +44,15 @@ class HomeScreen extends Component {
             style={styles.banner}
             source={require('./assets/pics/banner.png')}
           />
-          <Image
-            style={styles.boardMenu}
-            source={require('./assets/pics/hot_topic.png')}
-          />
+          <TouchableOpacity
+            onPress={() => {
+              this.props.navigation.navigate('Post');
+            }}>
+            <Image
+              style={styles.boardMenu}
+              source={require('./assets/pics/hot_topic.png')}
+            />
+          </TouchableOpacity>
           <Image
             style={styles.boardMenu}
             source={require('./assets/pics/notice.png')}
@@ -44,15 +61,15 @@ class HomeScreen extends Component {
             style={styles.boardMenu}
             source={require('./assets/pics/now_school.png')}
           />
-          <TouchableOpacity onPress={()=>{
+          <TouchableOpacity
+            onPress={() => {
               this.props.navigation.navigate('Board');
-          }}>
-          <Image
-            style={styles.bookmarkMenu}
-            source={require('./assets/pics/bookmark_board.png')}
-          />
+            }}>
+            <Image
+              style={styles.bookmarkMenu}
+              source={require('./assets/pics/bookmark_board.png')}
+            />
           </TouchableOpacity>
-          
         </View>
       </View>
     );
@@ -61,6 +78,7 @@ class HomeScreen extends Component {
 
 const styles = StyleSheet.create({
   main: {
+    marginTop: 40,
     paddingTop: 10,
     width: '100%',
     height: '100%',
@@ -78,9 +96,9 @@ const styles = StyleSheet.create({
     resizeMode: 'contain',
     marginBottom: 10,
   },
-  bookmarkMenu:{
-      height: 157,
-      resizeMode: 'contain',
+  bookmarkMenu: {
+    height: 157,
+    resizeMode: 'contain',
     marginBottom: 10,
   },
   userInfo: {
@@ -93,7 +111,30 @@ const styles = StyleSheet.create({
   userText: {
     fontSize: 20,
     fontWeight: 'bold',
-    fontFamily: Fonts.Lotte,
+    // fontFamily: 'Lotte-Medium',
+  },
+  header: {
+    width: '90%',
+    fontSize: 30,
+    flexDirection: 'row',
+    alignItems: 'center',
+    marginBottom: 10,
+  },
+  headerItemLeft: {
+    fontSize: 20,
+    color: 'black',
+    fontWeight: 'bold',
+    flex: 1,
+    // fontFamily: 'Lotte-Medium',
+  },
+  headerItemRight: {
+    fontSize: 20,
+    color: 'black',
+    fontWeight: 'bold',
+    // fontFamily: Font.LotteMedium,
+    // fontFamily: '12롯데마트드림Medium',
+
+    // fontFamily:Font.LotteMedium,
   },
 });
 
